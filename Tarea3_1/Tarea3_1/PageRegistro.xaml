@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Tarea3_1.View"
+             xmlns:Converter="clr-namespace:Tarea3_1.Converters"
+             x:Class="Tarea3_1.PageRegistro"
+             Title="Agregar Nuevo Empleado">
+
+    <ContentPage.BindingContext>
+        <vm:Empleado/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:Base64ToImageSource x:Key="Base64ToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#A2D9CE" Padding="20">
+               
+                <Image  x:Name="imagen"
+                Source="atencion"
+                Aspect="AspectFit"
+                HorizontalOptions="Center" 
+                WidthRequest="300"
+                HeightRequest="220"
+                IsVisible="{Binding IsImageDefault}">
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TomaFoto}"/>
+                    </Image.GestureRecognizers>
+
+                </Image>
+                <Image  x:Name="imagen2"
+                Source="{Binding Foto,  Converter={StaticResource Base64ToImage}}"
+                Aspect="AspectFit"
+                HorizontalOptions="Center" 
+                WidthRequest="300"
+                HeightRequest="220"
+                IsVisible="{Binding IsImageEdit}">
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TomaFoto}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label Text="Nombre:" HorizontalOptions="CenterAndExpand" TextColor="#202020" Margin="5" FontSize="18"></Label>
+                <Entry Margin="30,0,30,0" Placeholder="Nombre"  Keyboard="Text" Text="{Binding Nombre}" TextColor="Black"></Entry>
+
+                <Label Text="Apellido:"  HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#202020"/>
+                <Entry  Margin="30,0,30,0" Placeholder="Apellido"  Keyboard="Text" Text="{Binding Apellido}" TextColor="Black"></Entry>
+
+                <Label Text="Edad:" HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#202020"></Label>
+                <Entry  Margin="30,0,30,0" Placeholder="Edad"  Keyboard="Telephone" Text="{Binding Edad}" TextColor="Black"></Entry>
+
+                <Label Text="Dirección:" HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#202020"></Label>
+                <Entry Margin="30,0,30,0" Placeholder="Dirección"  Keyboard="Text" Text="{Binding Direccion}" TextColor="Black"></Entry>
+
+                <Label Text="Puesto:" HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#202020"></Label>
+                <Entry  Margin="30,0,30,0" Placeholder="Puesto"  Keyboard="Text" Text="{Binding Puesto}" TextColor="Black"></Entry>
+                
+            <Button Margin="30,0,30,0" CornerRadius="40" Text="Guardar" ImageSource="guardar" TextColor="Black" BackgroundColor="#16A085"  Command="{Binding Guardar}"/>
+            <Button Margin="30,0,30,0"   CornerRadius="40" Text="Ver Listas De Registros" ImageSource="lista" TextColor="Black" BackgroundColor="#16A085" Command="{Binding Lista}" />
+            <Button Margin="30,0,30,20"   CornerRadius="40" Text="Eliminar Campo" ImageSource="eliminar" TextColor="Black" BackgroundColor="#16A085" Command="{Binding EliminarR}" />
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

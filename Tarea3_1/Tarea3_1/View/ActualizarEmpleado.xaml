@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tarea3_1.View.ActualizarEmpleado">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#D1F2EB">
+            <Label Text="Nombre:" HorizontalOptions="CenterAndExpand" TextColor="#202020" Margin="5" FontSize="18"></Label>
+            <Entry Margin="30,0,30,0" Placeholder="Nombre"  Keyboard="Text" Text="{Binding Nombre}" TextColor="Black"></Entry>
+
+            <Label Text="Apellido:"  HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#202020"/>
+            <Entry  Margin="30,0,30,0" Placeholder="Apellido"  Keyboard="Text" Text="{Binding Apellido}" TextColor="Black"></Entry>
+
+            <Label Text="Edad:" HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#202020"></Label>
+            <Entry  Margin="30,0,30,0" Placeholder="Edad"  Keyboard="Telephone" Text="{Binding Edad}" TextColor="Black"></Entry>
+
+            <Label Text="Dirección:" HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#202020"></Label>
+            <Entry Margin="30,0,30,0" Placeholder="Dirección"  Keyboard="Text" Text="{Binding Direccion}" TextColor="Black"></Entry>
+
+            <Label Text="Puesto:" HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#202020"></Label>
+            <Entry  Margin="30,0,30,10" Placeholder="Puesto"  Keyboard="Text" Text="{Binding Puesto}" TextColor="Black"></Entry>
+
+            <Button Margin="30,0,30,0" CornerRadius="40" Text="Actualizar Empleado" ImageSource="actualizar" TextColor="Black" BackgroundColor="#16A085" Command="{Binding Actualizar}"/>
+            <Button Margin="30,0,30,0" CornerRadius="40" Text="Eliminar Empleado" ImageSource="eliminar" TextColor="Black" BackgroundColor="#16A085" Command="{Binding Eliminar}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

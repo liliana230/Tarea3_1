@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tarea3_1.View"
+             x:Class="Tarea3_1.ListaEmpleado"
+             Title="Registro De Empleados">
+
+    <ContentPage.Content>
+        <StackLayout Margin="10" BackgroundColor="#D1F2EB">
+             <ListView ItemsSource="{Binding Empleados}"
+                      SelectedItem="{Binding SelectedProduct}" HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <ViewCell.View>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Grid.Row="0" Grid.Column="1" Text="Id: " TextColor="Black" FontAttributes="Bold" />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding id}"  TextColor="Black" />
+
+                                    <Label Grid.Row="1" Grid.Column="1" Text="Nombres: " TextColor="Black" FontAttributes="Bold" />
+                                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding nombre}"  TextColor="Black" />
+
+                                    <Label Grid.Row="2" Grid.Column="1" Text="Apellidos: " TextColor="Black" FontAttributes="Bold" />
+                                    <Label Grid.Row="2" Grid.Column="2" Text="{Binding apellido}"  TextColor="Black" />
+
+                                    <Label Grid.Row="3" Grid.Column="1" Text="Edad: " TextColor="Black" FontAttributes="Bold" />
+                                    <Label Grid.Row="3" Grid.Column="2" Text="{Binding edad}"  TextColor="Black" />
+
+                                    <Label Grid.Row="4" Grid.Column="1" Text="Dirección: " TextColor="Black" FontAttributes="Bold" />
+                                    <Label Grid.Row="4" Grid.Column="2" Text="{Binding direccion}"  TextColor="Black" />
+
+                                    <Label Grid.Row="5" Grid.Column="1" Text="Puesto: " TextColor="Black" FontAttributes="Bold" />
+                                    <Label Grid.Row="5" Grid.Column="2" Text="{Binding puesto}"  TextColor="Black" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="12" Margin="30,0,30,20" HeightRequest="50" ImageSource="actualizar" CornerRadius="40" Text="Actualizar" BackgroundColor="#16A085" 
+                    TextColor="Black" Command="{Binding DetalleLista}" CommandParameter="{x:Type local:ActualizarEmpleado}"/> 
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
